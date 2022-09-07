@@ -1,7 +1,5 @@
 name: Print some text every 3rd minute
 on:
-  schedule:
-    - cron: "*/10 * * * *"
   workflow_dispatch:
     inputs:
       days:
@@ -29,6 +27,8 @@ on:
       dry_run:
         description: 'Only log actions, do not perform any delete operations.'
         required: false
+  schedule:
+    - cron: '*/10 * * * *'
 
 jobs:
   print_text:
