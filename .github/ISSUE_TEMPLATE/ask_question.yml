@@ -1,7 +1,7 @@
 name: Ask a question
 description: If you don't have a specific issue or bug to report you can still ask us questions and we will do our best to answer them
 title: "[Question]: "
-labels: [Type: Question, Status: Triage]
+labels: [Type%3A Question, Status%3A Triage]
 assignees:
   - tgwolf
 body:
