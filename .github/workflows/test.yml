@@ -45,7 +45,7 @@ jobs:
           echo "DAYS=${{ github.event.inputs.days || env.DEFAULT_DAYS }}" >> $GITHUB_ENV
           echo "MINIMUM_RUNS=${{ github.event.inputs.minimum_runs || env.DEFAULT_MINIMUM_RUNS }}" >> $GITHUB_ENV
           echo "DELETE_WORKFLOW_PATTERN=${{ github.event.inputs.delete_workflow_pattern || env.DEFAULT_DELETE_WORKFLOW_PATTERN }}" >> $GITHUB_ENV
-          echo "DELETE_WORKFLOW_BY_STATE_PATTERNE=${{ github.event.inputs.delete_workflow_by_state_pattern || env.DEFAULT_DELETE_WORKFLOW_BY_STATE_PATTERN }}" >> $GITHUB_ENV
+          echo "DELETE_WORKFLOW_BY_STATE_PATTERN=${{ github.event.inputs.delete_workflow_by_state_pattern || env.DEFAULT_DELETE_WORKFLOW_BY_STATE_PATTERN }}" >> $GITHUB_ENV
           echo "DEFAULT_DRY_RUN=${{ github.event.inputs.dry_run || env.DEFAULT_DRY_RUN }}" >> $GITHUB_ENV
 
       - name: Delete workflow runs
@@ -53,9 +53,9 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          retain_days: $DAYS
-          keep_minimum_runs: $MINIMUM_RUNS
-          delete_workflow_pattern: $DELETE_WORKFLOW_PATTERN
-          delete_workflow_by_state_pattern: $DELETE_WORKFLOW_BY_STATE_PATTERNE
-          dry_run: $DEFAULT_DRY_RUN
+          retain_days: ${{ env.DAYS }}
+          keep_minimum_runs: ${{ env.MINIMUM_RUNS }}
+          delete_workflow_pattern: ${{ env.DELETE_WORKFLOW_PATTERN }}
+          delete_workflow_by_state_pattern: ${{ env.DELETE_WORKFLOW_BY_STATE_PATTERN }}
+          dry_run: ${{ env.DEFAULT_DRY_RUN }}
 
